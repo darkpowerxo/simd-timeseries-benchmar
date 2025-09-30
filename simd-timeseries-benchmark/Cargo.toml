@@ -2,5 +2,39 @@
 name = "simd-timeseries-benchmark"
 version = "0.1.0"
 edition = "2024"
+authors = ["darkpowerxo <darkpowerxo@theproject1.com>"]
+description = "High-performance SIMD benchmark suite for time series deep learning operations"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/simd-timeseries-benchmark"
+keywords = ["simd", "avx", "avx512", "deep-learning", "time-series"]
+categories = ["algorithms", "science", "mathematics"]
+
+[features]
+default = ["std"]
+std = []
+avx2 = []
+avx512 = []
+opencl = ["ocl"]
 
 [dependencies]
+# Core dependencies
+ocl = { version = "0.19", optional = true }   # OpenCL bindings
+rayon = "1.8"                                 # Parallel iterators
+num-traits = "0.2"                           # Numeric traits
+
+# Additional utilities
+cfg-if = "1.0"                               # Conditional compilation
+thiserror = "2.0.17"                            # Error handling
+
+[dev-dependencies]
+criterion = { version = "0.7.0", features = ["html_reports"] }  # Benchmarking
+approx = "0.5"                               # Floating-point comparisons
+rand = "0.9.2"                                 # Random number generation for tests
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.bench]
+debug = true
