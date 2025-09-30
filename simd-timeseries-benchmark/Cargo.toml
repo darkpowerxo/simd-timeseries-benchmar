@@ -5,7 +5,7 @@ edition = "2024"
 authors = ["darkpowerxo <darkpowerxo@theproject1.com>"]
 description = "High-performance SIMD benchmark suite for time series deep learning operations"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/yourusername/simd-timeseries-benchmark"
+repository = "https://github.com/darkpowerxo/simd-timeseries-benchmark"
 keywords = ["simd", "avx", "avx512", "deep-learning", "time-series"]
 categories = ["algorithms", "science", "mathematics"]
 
