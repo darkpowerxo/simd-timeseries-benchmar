@@ -84,7 +84,7 @@ pub fn apply_activation(
         ActivationType::Tanh => crate::simd::fallback::tanh_f32(input, output),
         ActivationType::GELU => crate::simd::fallback::gelu_f32(input, output),
         ActivationType::Swish => crate::simd::fallback::swish_f32(input, output),
-    }
+    };
     
     Ok(())
 }
