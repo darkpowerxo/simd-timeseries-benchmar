@@ -41,7 +41,7 @@ pub fn matmul_f32(
     }
     
     // Fallback to scalar implementation
-    crate::simd::fallback::matmul_f32(a, b, c, m, n, k);
+    let _ = crate::simd::fallback::matmul_f32(a, b, c, m, n, k);
     Ok(())
 }
 
@@ -77,7 +77,7 @@ pub fn matmul_f32_with_backend(
     match backend {
         MatMulBackend::Auto => matmul_f32(a, b, c, m, n, k),
         MatMulBackend::Scalar => {
-            crate::simd::fallback::matmul_f32(a, b, c, m, n, k);
+            let _ = crate::simd::fallback::matmul_f32(a, b, c, m, n, k);
             Ok(())
         }
         #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]

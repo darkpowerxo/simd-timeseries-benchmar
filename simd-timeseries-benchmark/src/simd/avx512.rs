@@ -255,7 +255,7 @@ mod tests {
         unsafe {
             relu_f32_avx512(&input, &mut avx512_output);
         }
-        fallback::relu_f32(&input, &mut scalar_output);
+        let _ = fallback::relu_f32(&input, &mut scalar_output);
         
         for (avx512, scalar) in avx512_output.iter().zip(scalar_output.iter()) {
             assert_relative_eq!(avx512, scalar, epsilon = 1e-6);
